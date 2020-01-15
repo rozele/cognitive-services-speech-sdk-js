@@ -259,8 +259,11 @@ export class MicAudioSource implements IAudioSource {
                 if (device.deviceId === microphoneDeviceId) {
                     // Found the device
                     this.privMicrophoneLabel = device.label;
-                    break;
+                    // break;
                 }
+
+                // tslint:disable-next-line:no-console
+                console.info("Media device ID: " + device.deviceId + " Name " + device.label);
             }
             deferred.resolve(this.privMicrophoneLabel);
         }, () => deferred.resolve(this.privMicrophoneLabel));
